@@ -41,8 +41,8 @@ def getIP():
             exit()
 
 def setIP():
-	ip = raw_input( "What's your label printer's IP?: ")
-	name = raw_input("What's the location? (ex: VintHill): ")
+	ip = input( "What's your label printer's IP?: ")
+	name = input("What's the location? (ex: VintHill): ")
 	lines= ["", ""]
 	lines[0]= ip + "\n"
 	lines[1]= name
@@ -113,7 +113,7 @@ def format_rack():
 	zpl=""
 	temp_zpl=None
 	while  user_continue != "p": 
-		rack= raw_input( "Enter rack name: " + rack ) 
+		rack= input( "Enter rack name: " + rack ) 
 		#        %5EXA%0D%0A%5EFO50%2C50%5EA0120%2C120%5EFD+  +%5EFS%0D%0A%5EXZ%0D%0A%0D%0A
 		#temp_zpl="%5EXA%0D%0A%5EFO50%2C50%5EA0120%2C120%5EFD+" +rack+ "+%5EFS%0D%0A%5EXZ%0D%0A%0D%0A"
 		temp_zpl= """^XA
@@ -121,7 +121,7 @@ def format_rack():
 				     ^XZ
 			      """
 		zpl+=temp_zpl
-		user_continue= raw_input("[Enter] for another, [p] to print: ")
+		user_continue= input("[Enter] for another, [p] to print: ")
 	return(zpl)
 
 #############################################
@@ -131,16 +131,16 @@ def format_devicetodevice():
 	user_continue=""
 	zpl=""
 	while user_continue != "p":
-		device1= raw_input("Device 1: ")
-		port1= raw_input("Port: ")
-		device2= raw_input("Device 2: ")
-		port2= raw_input("Port: ")
+		device1= input("Device 1: ")
+		port1= input("Port: ")
+		device2= input("Device 2: ")
+		port2= input("Port: ")
 		#temp_zpl="%5EXA%5EFO0%2C55%5EGB600%2C35%2C35%5EFS%5EFO0%2C110%5EGB600%2C35%2C35%5EFS%5EFO300%2C0%5EGB2%2C200%2C2%5EFS%5EFO5%2C25%5EFR%5EA0%2C20%5EFD" +device1+ "%5EFS%5EFO5%2C58%5EFR%5EA0%2C40%5EFD" +port1+ "%5EFS%5EFO5%2C92%5EFR%5EAC%5EFD%3C%3D%3E%5EFS%5EFO5%2C113%5EFR%5EA0%2C40%5EFD" +port2+ "%5EFS%5EFO5%2C155%5EFR%5EA0%2C20%5EFD" +device2+ "%5EFS%5EFO595%2C25%2C1%5EFR%5EA0%2C20%5EFD" +device1+ "%5EFS%5EFO595%2C58%2C1%5EFR%5EA0%2C40%5EFD" +port1+ "%5EFS%5EFO595%2C92%2C1%5EFR%5EAC%5EFD%3C%3D%3E%5EFS%5EFO595%2C113%2C1%5EFR%5EA0%2C40%5EFD" +port2+ "%5EFS%5EFO595%2C155%2C1%5EFR%5EA0%2C20%5EFD" +device2+ "%5EFS%5EXZ%0D%0A" 
 		#%5EXA%5EFO0%2C55%5EGB600%2C35%2C35%5EFS%5EFO0%2C110%5EGB600%2C35%2C35%5EFS%5EFO300%2C0%5EGB2%2C200%2C2%5EFS%5EFO5%2C25%5EFR%5EA0%2C20%5EFD" +device2+ "%5EFS%5EFO5%2C58%5EFR%5EA0%2C40%5EFD" +port2+ "%5EFS%5EFO5%2C92%5EFR%5EAC%5EFD%3C%3D%3E%5EFS%5EFO5%2C113%5EFR%5EA0%2C40%5EFD" +port1+ "%5EFS%5EFO5%2C155%5EFR%5EA0%2C20%5EFD" +device1+ "%5EFS%5EFO595%2C25%2C1%5EFR%5EA0%2C20%5EFD" +device2+ "%5EFS%5EFO595%2C58%2C1%5EFR%5EA0%2C40%5EFD" +port2+ "%5EFS%5EFO595%2C92%2C1%5EFR%5EAC%5EFD%3C%3D%3E%5EFS%5EFO595%2C113%2C1%5EFR%5EA0%2C40%5EFD" +port1+ "%5EFS%5EFO595%2C155%2C1%5EFR%5EA0%2C20%5EFD" +device1+ "%5EFS%5EXZ%0D%0A"
 		#temp_zpl="null%5EXA%5EFO0%2C55%5EGB600%2C35%2C35%5EFS%5EFO0%2C110%5EGB600%2C35%2C35%5EFS%5EFO300%2C0%5EGB2%2C200%2C2%5EFS%5EFO5%2C25%5EFR%5EA0%2C20%5EFD" +device1+ "%5EFS%5EFO5%2C58%5EFR%5EA0%2C40%5EFD" +port1+ "%5EFS%5EFO5%2C92%5EFR%5EAC%5EFD%3C%3D%3E%5EFS%5EFO5%2C113%5EFR%5EA0%2C40%5EFD" +port2+ "%5EFS%5EFO5%2C155%5EFR%5EA0%2C20%5EFD" +device2+ "%5EFS%5EFO595%2C25%2C1%5EFR%5EA0%2C20%5EFD" +device1+ "%5EFS%5EFO595%2C58%2C1%5EFR%5EA0%2C40%5EFD" +port1+ "%5EFS%5EFO595%2C92%2C1%5EFR%5EAC%5EFD%3C%3D%3E%5EFS%5EFO595%2C113%2C1%5EFR%5EA0%2C40%5EFD" +port2+ "%5EFS%5EFO595%2C155%2C1%5EFR%5EA0%2C20%5EFD" +device2+ "%5EFS%5EXZ%0D%0A"
 		temp_zpl= "^XA^FO0,42^GB600,35,35^FS^FO0,120^GB600,35,35^FS^FO300,0^GB2,200,2^FS^FO5,12^FR^A0,30^FD"+device1+"^FS^FO5,45^FR^A0,40^FD"+port1+"^FS^FO5,80^FR^AC^FD"       "^FS^FO5,100^FR^AC^FD"       "^FS^FO5,123^FR^A0,40^FD" + port2+ "^FS^FO5,165^FR^A0,30^FD"+device2+"^FS^FO595,12,1^FR^A0,30^FD" + device1 +"^FS^FO595,45,1^FR^A0,40^FD"+port1+"^FS^FO595,80,1^FR^AC^FD"     "^FS^FO595,100,1^FR^AC^FD"     "^FS^FO595,123,1^FR^A0,40^FD"+ port2+ "^FS^FO595,165,1^FR^A0,30^FD"+ device2+"^FS^XZ^XA^FO0,42^GB600,35,35^FS^FO0,120^GB600,35,35^FS^FO300,0^GB2,200,2^FS^FO5,12^FR^A0,30^FD"+device2+"^FS^FO5,45^FR^A0,40^FD"+port2+"^FS^FO5,80^FR^AC^FD"   "^FS^FO5,100^FR^AC^FD"   "^FS^FO5,123^FR^A0,40^FD"+port1+"^FS^FO5,165^FR^A0,30^FD"+device1+"^FS^FO595,12,1^FR^A0,30^FD"+device2+"^FS^FO595,45,1^FR^A0,40^FD"+port2+"^FS^FO595,80,1^FR^AC^FD"   "^FS^FO595,100,1^FR^AC^FD"    "^FS^FO595,123,1^FR^A0,40^FD" + port1+ "^FS^FO595,165,1^FR^A0,30^FD" + device1+ "^FS^XZ"
 		zpl+=temp_zpl
-		user_continue= raw_input("[Enter] for another, [p] to print: ")
+		user_continue= input("[Enter] for another, [p] to print: ")
 	return(zpl)
 
 #############################################
@@ -156,7 +156,7 @@ def format_devicetoDeviceFile():
 	zpl=""
 	print("Make sure the file is in the same directory/folder as this program.\n")
 	print("Give full filename. Example: 'devices.csv'")
-	sensorFile = raw_input("What file would you like to read from?: ")
+	sensorFile = input("What file would you like to read from?: ")
 	with open(sensorFile) as f:
 		for line in f:
 			splitLine = line.split(",")
@@ -179,8 +179,8 @@ def format_smallFont():
 	zpl=""
 	temp_zpl=None
 	while  user_continue != "p": 
-		top= raw_input( "Enter top row text: " ) 
-		bottom= raw_input( "Enter bottom row text: " ) 
+		top= input( "Enter top row text: " ) 
+		bottom= input( "Enter bottom row text: " ) 
 
 		#        %5EXA%0D%0A%5EFO50%2C50%5EA0120%2C120%5EFD+  +%5EFS%0D%0A%5EXZ%0D%0A%0D%0A
 		#temp_zpl="%5EXA%0D%0A%5EFO50%2C50%5EA0120%2C120%5EFD+" +rack+ "+%5EFS%0D%0A%5EXZ%0D%0A%0D%0A"
@@ -190,7 +190,7 @@ def format_smallFont():
 				     ^XZ
 			      """
 		zpl+=temp_zpl
-		user_continue= raw_input("[Enter] for another, [p] to print: ")
+		user_continue= input("[Enter] for another, [p] to print: ")
 	return(zpl)
 
 ####################################################
@@ -204,7 +204,7 @@ def format_smallFontFile():
 	temp_zpl=None
 	print("Make sure the file is in the same directory/folder as this program.\n")
 	print("Give full filename. Example: 'sensors.txt'")
-	sensorFile = raw_input("What file would you like to read from?: ")
+	sensorFile = input("What file would you like to read from?: ")
 	with open(sensorFile) as f:
 		for line in f:
 			splitLine = line.split(":")
@@ -223,7 +223,7 @@ def main():
 	while True:
 		greeting()
 
-		choice= raw_input("Type number followed by [ENTER]:")
+		choice= input("Type number followed by [ENTER]:")
 
 		########### Set IP ##########################
 		if choice == "ip":
